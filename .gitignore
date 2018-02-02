@@ -1,0 +1,11 @@
+venv
+env
+migrations
+*.pyc
+__pycache__
+media
+.idea/
+staticfiles
+*.sqlite3
+debug.log
+.DS_Store

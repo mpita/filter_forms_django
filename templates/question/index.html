@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="s">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test - Form</title>
+</head>
+<body>
+    <h1>Respuestas</h1>
+    {% if user.is_anonymous %}
+    <h2>Nota: Para poder responder antes tiene que iniciar sesión en el <a href="/admin">admin</a> y volser al inicio</h2>
+    {% else %}
+    <p>
+        <b>Nota: </b> para tener presunta que responder, tiene que crearla en el admin modelo <a href="/admin/question/question/add/">Question/Preguntas</a>.
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Guardar respuesta" />
+    </form>
+    <h5><a href="/admin/logout/">logout</a></h5>
+    {% endif %}
+</body>
+</html>
